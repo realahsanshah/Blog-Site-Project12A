@@ -22,12 +22,11 @@
     "@types/react": "15.0.21",
     "@types/react-dom": "0.14.23",
     "gatsby": "^2.26.1",
+    "gatsby-plugin-material-ui": "^2.1.10",
+    "gatsby-plugin-typescript": "^2.8.0",
+    "mdi-material-ui": "^6.20.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "gatsby-plugin-material-ui": "^2.1.10",
-    "gatsby-plugin-react-helmet": "^1.0.8",
-    "gatsby-plugin-typescript": "^1.4.20",
-    "mdi-material-ui": "^6.20.0",
     "typescript": "^4.1.2"
   }
 }

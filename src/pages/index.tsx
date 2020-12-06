@@ -6,8 +6,7 @@ const IndexPage = () => {
   return (
     <div>
       <Navbar />
-      Hello World
-      <Button variant="contained" color="primary">Hello</Button>
+      
     </div>
   )
 }
