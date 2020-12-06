@@ -1,10 +1,13 @@
 import * as React from 'react';
 import Layout from '../Layout/Layout';
 import { graphql } from 'gatsby';
-import { Card, CardMedia, Grid, makeStyles, CardActionArea,
-     CardContent, Typography,CardActions,Button} from '@material-ui/core';
+import {
+    Card, CardMedia, Grid, makeStyles, CardActionArea,
+    CardContent, Typography, CardActions, Button
+} from '@material-ui/core';
 // import {documentToHtmlString} from '@contentful/rich-text-html-renderer'
-import {navigate} from 'gatsby';
+import { navigate } from 'gatsby';
+import * as moment from 'moment';
 
 export interface BlogListProps {
     data: any
@@ -13,8 +16,8 @@ export interface BlogListProps {
 const useStyles = makeStyles({
     root: {
         maxWidth: 1200,
-        marginLeft:'20px',
-        marginTop:'20px',
+        marginLeft: '20px',
+        marginTop: '20px',
     },
 });
 
@@ -22,7 +25,7 @@ const useStyles = makeStyles({
 const renderBlog = (data: any) => {
     const classes = useStyles();
     const blog = data.node;
-    const link:string=blog.title;
+    const link: string = blog.miniTitle;
     return (
         <div>
             <Grid container>
@@ -41,12 +44,13 @@ const renderBlog = (data: any) => {
                                         {blog.title}
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary" component="p">
+                                        {moment(blog.publishedDate,'YYYY MM DD hh:mm').fromNow()}<br/>
                                         {blog.excerpt.excerpt}
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button size="small" color="primary" onClick={()=>{
+                                <Button size="small" color="primary" onClick={() => {
                                     navigate(link);
                                 }}>
                                     Read Full Article
@@ -55,14 +59,6 @@ const renderBlog = (data: any) => {
 
                         </Card>
                     </Grid>
-                    {/* <Grid item xs={12} md={6} >
-                        <h1>
-                           {blog.title}
-                        </h1>
-                        <h4>
-                            {blog.excerpt.excerpt}
-                        </h4>
-                    </Grid> */}
                 </Grid>
             </Grid>
         </div>
@@ -70,16 +66,9 @@ const renderBlog = (data: any) => {
 }
 
 const BlogList: React.SFC<BlogListProps> = ({ data }) => {
-    // console.log("blogs",data.allContentfulBlogPost.edges[0].node);
     const blogs = data.allContentfulBlogPost.edges;
-    console.log('blogs', blogs);
-
-    // blogs.forEach((data:any)=>{
-    //     console.log('data',data.node.title);
-    // })
-
     return (
-        <Layout title="Blogs">
+        <Layout title="Gatsby Blogs">
             <h1>Blogs</h1>
             {blogs.map((blog: any) => {
                 return (renderBlog(blog));
@@ -97,6 +86,7 @@ query MyQuery {
                     edges {
                     node {
                     title
+                    miniTitle
           body {
                     raw
                 }
@@ -110,6 +100,7 @@ query MyQuery {
                     url
                 }
           }
+          
         }
       }
     }

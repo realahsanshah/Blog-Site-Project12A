@@ -17,6 +17,7 @@
   "license": "0BSD",
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^14.1.2",
+    "@contentful/rich-text-react-renderer": "^14.1.2",
     "@material-ui/core": "^4.11.2",
     "@material-ui/styles": "^4.11.2",
     "@types/node": "^8.10.66",
@@ -29,6 +30,7 @@
     "gatsby-plugin-typescript": "^2.8.0",
     "gatsby-source-contentful": "^4.2.0",
     "mdi-material-ui": "^6.20.0",
+    "moment": "^2.29.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "typescript": "^4.1.2"
