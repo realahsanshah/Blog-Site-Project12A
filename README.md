@@ -7,6 +7,9 @@
   Gatsby minimal starter
 </h1>
 
+## Live Netlify Link
+[Click Here](https://blog-site-by-realsashah.netlify.app/)
+
 ## 🚀 Quick start
 
 1.  **Create a Gatsby site.**
