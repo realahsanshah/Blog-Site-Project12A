@@ -10,6 +10,7 @@ export interface LayoutProps {
 const Layout: React.SFC<LayoutProps> = ({children,title}) => {
     return ( 
         <div>
+            <title>Gatsby Blogs</title>
              <Navbar title={title} />
              {children}
              <Footer />
