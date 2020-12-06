@@ -13,7 +13,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     title: {
     textAlign:'center',
-    hover:'pointer'
+    '&:hover':{
+      cursor:'pointer'
+    }
     },
   }),
 );
