@@ -5,6 +5,8 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
+      fontFamily: 'Arial, Helvetica, sans-serif',
+      fontSize: '22px'
     },
     paper: {
       height: 140,
@@ -18,6 +20,9 @@ const useStyles = makeStyles((theme: Theme) =>
         margin:'200px 0 50px',
         textAlign:'center',
         color:'#003A7B'
+    },
+    topAnimation :{
+        marginTop: '70px'
     }
 
   }),
@@ -34,7 +39,7 @@ const HomeComponent: React.SFC<HomeComponentProps> = () => {
             <Grid container className={classes.root}>
                 <Grid container xs={12}>
                     <Grid item xs={12} md={6}>
-                        <img src="../../images/topPic.svg" alt="Gatsby Blogs" />
+                        <img className={classes.topAnimation} src="../../images/topPic.svg" alt="Gatsby Blogs" />
                     </Grid>
                     <Grid item xs={12} md={6} >
                         <h1 className={classes.topRight}>
