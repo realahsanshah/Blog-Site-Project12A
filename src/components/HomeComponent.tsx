@@ -29,10 +29,10 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export interface HomeComponentProps {
-    
+    author:String
 }
  
-const HomeComponent: React.SFC<HomeComponentProps> = () => {
+const HomeComponent: React.SFC<HomeComponentProps> = ({author}) => {
     const classes=useStyles();
     return ( 
         <div>
@@ -43,7 +43,7 @@ const HomeComponent: React.SFC<HomeComponentProps> = () => {
                     </Grid>
                     <Grid item xs={12} md={6} >
                         <h1 className={classes.topRight}>
-                            Gatsby Blogs <br/>by Ahsan Shah
+                            Gatsby Blogs <br/>by {author}
                             <br/>
                             <Button variant="outlined" color="primary">Goto Blogs</Button>
                         </h1>

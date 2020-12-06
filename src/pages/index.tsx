@@ -1,15 +1,13 @@
 import * as React from "react"
-import {Button} from '@material-ui/core';
-import Navbar from '../components/Navbar';
 import HomeComponent from "../components/HomeComponent";
-import Footer from '../components/Footer';
+import Layout from "../Layout/Layout";
 
 const IndexPage = () => {
   return (
     <div>
-      <Navbar />
-      <HomeComponent />
-      <Footer />
+      <Layout title="Gatsby Blogs">
+      <HomeComponent author="Ahsan Ali Shah" />
+      </Layout>
     </div>
   )
 }
