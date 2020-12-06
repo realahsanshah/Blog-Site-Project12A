@@ -5,7 +5,6 @@ import {
     Card, CardMedia, Grid, makeStyles, CardActionArea,
     CardContent, Typography, CardActions, Button
 } from '@material-ui/core';
-// import {documentToHtmlString} from '@contentful/rich-text-html-renderer'
 import { navigate } from 'gatsby';
 import * as moment from 'moment';
 

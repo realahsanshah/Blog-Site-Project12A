@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {makeStyles,createStyles,Theme} from '@material-ui/core';
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     footer:{
         background:'#002348',

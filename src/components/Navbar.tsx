@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     title: {
-    //   flexGrow: 1,
     textAlign:'center',
     hover:'pointer'
     },
