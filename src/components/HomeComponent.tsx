@@ -1,5 +1,6 @@
 import { Grid ,makeStyles,createStyles,Theme,Button} from '@material-ui/core';
 import * as React from 'react';
+import {navigate} from 'gatsby';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -29,10 +30,11 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export interface HomeComponentProps {
-    author:String
+    author:string,
+    link:string
 }
  
-const HomeComponent: React.SFC<HomeComponentProps> = ({author}) => {
+const HomeComponent: React.SFC<HomeComponentProps> = ({author,link}) => {
     const classes=useStyles();
     return ( 
         <div>
@@ -45,7 +47,9 @@ const HomeComponent: React.SFC<HomeComponentProps> = ({author}) => {
                         <h1 className={classes.topRight}>
                             Gatsby Blogs <br/>by {author}
                             <br/>
-                            <Button variant="outlined" color="primary">Goto Blogs</Button>
+                            <Button variant="outlined" color="primary" onClick={()=>{
+                                navigate(link);
+                            }}>Goto Blogs</Button>
                         </h1>
                     </Grid>
                 </Grid>

@@ -6,7 +6,7 @@ const IndexPage = () => {
   return (
     <div>
       <Layout title="Gatsby Blogs">
-      <HomeComponent author="Ahsan Ali Shah" />
+      <HomeComponent author="Ahsan Ali Shah" link="/blogs"/>
       </Layout>
     </div>
   )
