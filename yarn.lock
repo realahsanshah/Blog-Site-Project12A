@@ -948,7 +948,7 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.10.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.5", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
+"@babel/runtime@^7.10.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.5", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.5", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
   version "7.12.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
   integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
@@ -1476,6 +1476,13 @@
     react-is "^16.8.0 || ^17.0.0"
     react-transition-group "^4.4.0"
 
+"@material-ui/icons@^4.11.2":
+  version "4.11.2"
+  resolved "https://registry.yarnpkg.com/@material-ui/icons/-/icons-4.11.2.tgz#b3a7353266519cd743b6461ae9fdfcb1b25eb4c5"
+  integrity sha512-fQNsKX2TxBmqIGJCSi3tGTO/gZ+eJgWmMJkgDiOfyNaunNaxcklJQFaFogYcFl0qFuaEz1qaXYXboa/bUXVSOQ==
+  dependencies:
+    "@babel/runtime" "^7.4.4"
+
 "@material-ui/styles@^4.11.2":
   version "4.11.2"
   resolved "https://registry.yarnpkg.com/@material-ui/styles/-/styles-4.11.2.tgz#e70558be3f41719e8c0d63c7a3c9ae163fdc84cb"
@@ -1817,7 +1824,7 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
-"@types/lodash@^4.14.92":
+"@types/lodash@^4.14.165", "@types/lodash@^4.14.92":
   version "4.14.165"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.165.tgz#74d55d947452e2de0742bad65270433b63a8c30f"
   integrity sha512-tjSSOTHhI5mCHTy/OOXYIhi2Wt1qcbHmuXD1Ha7q70CgI/I71afO4XtLb/cVexki1oVYchpul/TOuu3Arcdxrg==
@@ -4281,6 +4288,11 @@ deep-is@~0.1.3:
   resolved "https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34"
   integrity sha1-s2nW+128E+7PUk+RsHD+7cNXzzQ=
 
+deepmerge@^2.1.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-2.2.1.tgz#5d3ff22a01c00f645405a2fbc17d0778a1801170"
+  integrity sha512-R9hc1Xa/NOBi9WRVUWg19rl1UB7Tt4kuPd+thNJgFZoxXsTz7ncaPaeIm+40oSGuP33DfMb4sZt1QIGiJzC4EA==
+
 default-gateway@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/default-gateway/-/default-gateway-4.2.0.tgz#167104c7500c2115f6dd69b0a536bb8ed720552b"
@@ -5603,6 +5615,19 @@ form-data@^3.0.0:
     combined-stream "^1.0.8"
     mime-types "^2.1.12"
 
+formik@^2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/formik/-/formik-2.2.5.tgz#addf4ed7a15ebddf22c883a3d358cd27c8a91a55"
+  integrity sha512-KkOsyYmh5xsow+wlbdL9QSkqvbiHSb1RIToBKiooCFW4lyypn+ZlHGjTuuOqUWBqZaI5nCEupeI275Mo6tFBzg==
+  dependencies:
+    deepmerge "^2.1.1"
+    hoist-non-react-statics "^3.3.0"
+    lodash "^4.17.14"
+    lodash-es "^4.17.14"
+    react-fast-compare "^2.0.1"
+    tiny-warning "^1.0.2"
+    tslib "^1.10.0"
+
 forwarded@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
@@ -5795,6 +5820,11 @@ gatsby-page-utils@^0.5.0:
     glob "^7.1.6"
     lodash "^4.17.20"
     micromatch "^4.0.2"
+
+gatsby-plugin-firebase@^0.2.0-beta.4:
+  version "0.2.0-beta.4"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-firebase/-/gatsby-plugin-firebase-0.2.0-beta.4.tgz#a4d8bfdce8c65efa284d0c523f8524c28f4a786c"
+  integrity sha512-F1uh9T5dY38aeNvKzqj+3K655dce1QS70wuG4bhV9L3cnTJR2vitTWyIoCvRJJfPs7Xq7LgjUDmHDrEos4S3gQ==
 
 gatsby-plugin-material-ui@^2.1.10:
   version "2.1.10"
@@ -8002,6 +8032,11 @@ lock@^1.0.0:
   resolved "https://registry.yarnpkg.com/lock/-/lock-1.1.0.tgz#53157499d1653b136ca66451071fca615703fa55"
   integrity sha1-UxV0mdFlOxNspmRRBx/KYVcD+lU=
 
+lodash-es@^4.17.11, lodash-es@^4.17.14:
+  version "4.17.15"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
+  integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
+
 lodash.camelcase@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
@@ -8551,6 +8586,11 @@ nan@^2.12.1:
   version "2.14.2"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.2.tgz#f5376400695168f4cc694ac9393d0c9585eeea19"
   integrity sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==
+
+nanoclone@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/nanoclone/-/nanoclone-0.2.1.tgz#dd4090f8f1a110d26bb32c49ed2f5b9235209ed4"
+  integrity sha512-wynEP02LmIbLpcYw8uBKpcfF6dmg2vcpKqxeH5UcoKEYdExslsdUA4ugFauuaeYdTB76ez6gJW8XAZ6CgkXYxA==
 
 nanomatch@^1.2.9:
   version "1.2.13"
@@ -9896,6 +9936,11 @@ proper-lockfile@^4.1.1:
     retry "^0.12.0"
     signal-exit "^3.0.2"
 
+property-expr@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/property-expr/-/property-expr-2.0.4.tgz#37b925478e58965031bb612ec5b3260f8241e910"
+  integrity sha512-sFPkHQjVKheDNnPvotjQmm3KD3uk1fWKUN7CrpdbwmUx3CrG3QiM8QpTSimvig5vTXmTvjz7+TDvXOI9+4rkcg==
+
 protobufjs@^6.8.6:
   version "6.10.2"
   resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-6.10.2.tgz#b9cb6bd8ec8f87514592ba3fdfd28e93f33a469b"
@@ -10155,6 +10200,11 @@ react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
   integrity sha512-XzgvowFrwDo6TWcpJ/WTiarb9UI6lhA4PMzS7n1joK3sHfBBBOQHUc0U4u57D6DWO9vHv6lVSWx2Q/Ymfyv4hw==
+
+react-fast-compare@^2.0.1:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
+  integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
 
 react-hot-loader@^4.12.21:
   version "4.13.0"
@@ -11793,6 +11843,11 @@ token-types@^2.0.0:
     "@tokenizer/token" "^0.1.0"
     ieee754 "^1.1.13"
 
+toposort@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/toposort/-/toposort-2.0.2.tgz#ae21768175d1559d48bef35420b2f4962f09c330"
+  integrity sha1-riF2gXXRVZ1IvvNUILL0li8JwzA=
+
 trim-trailing-lines@^1.0.0:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/trim-trailing-lines/-/trim-trailing-lines-1.1.4.tgz#bd4abbec7cc880462f10b2c8b5ce1d8d1ec7c2c0"
@@ -12751,6 +12806,19 @@ yoga-layout-prebuilt@^1.9.6:
   integrity sha512-YnOmtSbv4MTf7RGJMK0FvZ+KD8OEe/J5BNnR0GHhD8J/XcG/Qvxgszm0Un6FTHWW4uHlTgP0IztiXQnGyIR45g==
   dependencies:
     "@types/yoga-layout" "1.9.2"
+
+yup@^0.32.5:
+  version "0.32.5"
+  resolved "https://registry.yarnpkg.com/yup/-/yup-0.32.5.tgz#fddc1dc655bc016b416275e7ce9ab8d817a1636a"
+  integrity sha512-bLbkTrPrFEF4rg30lS8T3QqoVLSAJ1N/b6btn5HVM4y9Q2EVJr2VLk+3kcskqPB41OSPx0cGRLINklH7PNqSYg==
+  dependencies:
+    "@babel/runtime" "^7.10.5"
+    "@types/lodash" "^4.14.165"
+    lodash "^4.17.20"
+    lodash-es "^4.17.11"
+    nanoclone "^0.2.1"
+    property-expr "^2.0.4"
+    toposort "^2.0.2"
 
 yurnalist@^1.1.2:
   version "1.1.2"

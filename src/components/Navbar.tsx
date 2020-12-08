@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {AppBar,Toolbar,Typography,createStyles,makeStyles,Theme} from '@material-ui/core';
+import {AppBar,Toolbar,Typography,createStyles,makeStyles,Theme,Button, Box} from '@material-ui/core';
 import {navigate} from 'gatsby';
 
 interface NavbarInterface{
@@ -12,11 +12,19 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     title: {
-    textAlign:'center',
-    '&:hover':{
-      cursor:'pointer'
-    }
+        textAlign:'center',
+        '&:hover': {
+          cursor:'pointer',
+       },
     },
+    navLinks:{
+      marginLeft: 'auto',
+    },
+    navLink:{
+      marginRight:'10px',
+      marginLeft:'10px'
+    }
+  
   }),
 );
 
@@ -26,9 +34,17 @@ const Navbar=({title}:NavbarInterface)=>{
         <div>
            <AppBar position="static">
                <Toolbar>
-                   <Typography variant="h6" onClick={()=>{
+                   <Typography className={classes.title} variant="h6"  onClick={()=>{
                        navigate('/')
                    }}>{title}</Typography>
+                   <div className={classes.navLinks}>
+                    <Button className={classes.navLink} color="inherit" onClick={()=>{
+                      navigate('/login')
+                    }}>Login</Button>
+                    <Button className={classes.navLink} color="inherit" onClick={()=>{
+                      navigate('/signup')
+                    }}>Sign Up</Button>
+                   </div>
                </Toolbar>
             </AppBar>
         </div>
