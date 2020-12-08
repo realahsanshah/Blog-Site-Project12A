@@ -7,8 +7,6 @@ import {
 } from '@material-ui/core';
 import { navigate } from 'gatsby';
 import * as moment from 'moment';
-import {useContext} from 'react';
-import {AuthContext} from '../context/AuthContext.js';
 
 export interface BlogListProps {
     data: any
