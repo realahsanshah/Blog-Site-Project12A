@@ -43,7 +43,8 @@ export interface LoginProps {
 const SignUp: React.SFC<LoginProps> = () => {
     const classes = useStyles();
 
-    const [email,setEmail]=useState();
+    const [email,setEmail]=useState("");
+    const [password,setPassword]=useState("");
 
     const {setUser,setIsAuthenticated} =useContext(AuthContext);
 
@@ -62,15 +63,14 @@ const SignUp: React.SFC<LoginProps> = () => {
                     console.log('====================================');
 
                     try{
-                    const result =await firebase.auth()
-                        .createUserWithEmailAndPassword(values.email,values.password);
-                    setUser(result);
-                    setIsAuthenticated(true);
+                        const result =await firebase.auth()
+                            .createUserWithEmailAndPassword(values.email,values.password);
+                        setUser(result);
+                        setIsAuthenticated(true);
                     }catch(err){
                         alert(err);
                     }
-
-                    // navigate('/')
+                    navigate('/')
                 }}
             >
                 {(formik: any) => (

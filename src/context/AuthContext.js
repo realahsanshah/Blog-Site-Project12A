@@ -1,5 +1,6 @@
 import React from 'react';
 import {createContext,useState} from 'react';
+import firebase from 'gatsby-plugin-firebase';
 
 const initialState={
     user:null,
