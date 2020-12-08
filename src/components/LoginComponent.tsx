@@ -2,26 +2,24 @@ import * as React from 'react';
 import { Button, makeStyles, createStyles, TextField, InputAdornment } from '@material-ui/core';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import MailOutlineIcon from '@material-ui/icons/MailOutlined';
-import VpnKeyOutlineIcon from '@material-ui/icons/VpnKeyOutlined';
-import {navigate} from 'gatsby';
+import { navigate ,Link} from 'gatsby';
 
 const useStyles = makeStyles(() =>
     createStyles({
         formStyles: {
             textAlign: 'center'
         },
-        button:{
-            margin:'2px'
+        button: {
+            margin: '2px'
         },
-        errorMessage:{
-            fontSize:'18px'
+        errorMessage: {
+            fontSize: '18px'
         },
-        heading:{
-                // margin:'200px 0 50px',
-                // textAlign:'center',
-                color:'#003A7B',
-                marginTop:'150px',
+        heading: {
+            // margin:'200px 0 50px',
+            // textAlign:'center',
+            color: '#003A7B',
+            marginTop: '150px',
         }
     })
 );
@@ -94,7 +92,7 @@ const Login: React.SFC<LoginProps> = () => {
                         </div>
 
                         <div>
-                            <Button className={classes.button} variant="outlined" color="primary" onClick={()=>{
+                            <Button className={classes.button} variant="outlined" color="primary" onClick={() => {
                                 navigate('/');
                             }}>
                                 Cancel
@@ -107,9 +105,10 @@ const Login: React.SFC<LoginProps> = () => {
 
                     </Form>
                 )}
-
-
             </Formik>
+            <div>
+                <Link to="/signup">Not a user? Register here</Link>
+            </div>
         </div>
     );
 }

@@ -2,8 +2,6 @@ import * as React from 'react';
 import { Button, makeStyles, createStyles, TextField, InputAdornment } from '@material-ui/core';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import MailOutlineIcon from '@material-ui/icons/MailOutlined';
-import VpnKeyOutlineIcon from '@material-ui/icons/VpnKeyOutlined';
 import {navigate} from 'gatsby';
 
 const useStyles = makeStyles(() =>
