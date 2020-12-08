@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Navbar=({title}:NavbarInterface)=>{
     const classes=useStyles();
-    const {isAuthenticated,setIsAuthenticated,setUser} =useContext(AuthContext);
+    const {setUser,isAuthenticated,setIsAuthenticated} =useContext(AuthContext);
 
     return(
         <div>
@@ -41,6 +41,7 @@ const Navbar=({title}:NavbarInterface)=>{
                    <Typography className={classes.title} variant="h6"  onClick={()=>{
                        navigate('/')
                    }}>{title}</Typography>
+                   {/* <Typography className={classes.title} variant="h6">{isAuthenticated}</Typography> */}
                   
                   
                   {

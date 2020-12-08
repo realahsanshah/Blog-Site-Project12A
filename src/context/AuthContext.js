@@ -1,5 +1,5 @@
 import React from 'react';
-import {createContext,useState} from 'react';
+import {createContext,useState,useEffect} from 'react';
 import firebase from 'gatsby-plugin-firebase';
 
 const initialState={
@@ -11,8 +11,16 @@ export const AuthContext=createContext(initialState);
 
 const AuthProvider=({children})=>{
 
-    const [user,setUser]=useState("Hello");
+    const [user,setUser]=useState(null);
     const [isAuthenticated,setIsAuthenticated]=useState(false);
+
+    useEffect(()=>{
+        firebase.auth().onAuthStateChanged((user)=>{
+            setUser(user);
+            user?setIsAuthenticated(true):setIsAuthenticated(false);
+        })
+    },[])
+    
 
     return(
         <AuthContext.Provider value={{user,setUser,isAuthenticated,setIsAuthenticated}}>

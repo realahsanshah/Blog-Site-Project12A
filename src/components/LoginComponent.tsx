@@ -3,6 +3,11 @@ import { Button, makeStyles, createStyles, TextField, InputAdornment } from '@ma
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { navigate ,Link} from 'gatsby';
+import firebase from 'firebase';
+import {useContext} from 'react';
+import {AuthContext} from '../context/AuthContext.js';
+
+
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -16,8 +21,6 @@ const useStyles = makeStyles(() =>
             fontSize: '18px'
         },
         heading: {
-            // margin:'200px 0 50px',
-            // textAlign:'center',
             color: '#003A7B',
             marginTop: '150px',
         }
@@ -42,6 +45,8 @@ export interface LoginProps {
 
 const Login: React.SFC<LoginProps> = () => {
     const classes = useStyles();
+    const {user,isAuthenticated,setUser,setIsAuthenticated} =useContext(AuthContext);
+
     return (
         <div className={classes.formStyles}>
             <h1 className={classes.heading}>Login Here</h1>
@@ -51,11 +56,17 @@ const Login: React.SFC<LoginProps> = () => {
                     password: "",
                 }}
                 validationSchema={loginSchema}
-                onSubmit={(values) => {
-                    console.log('====================================');
-                    console.log("Submitted", values.email, values.password);
-                    console.log('====================================');
-                    navigate('/')
+                onSubmit={async (values) => {
+                    try{
+                    const result = await firebase.auth()
+                                .signInWithEmailAndPassword(values.email,values.password);
+                            setUser(result);
+                            setIsAuthenticated(true);
+                        navigate('/');
+                    }
+                    catch(err){
+                        alert(err.ErrorMessage);
+                    }
                 }}
             >
                 {(formik: any) => (

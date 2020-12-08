@@ -3,7 +3,7 @@ import { Button, makeStyles, createStyles, TextField } from '@material-ui/core';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import {navigate} from 'gatsby';
-import {useContext,useState} from 'react';
+import {useContext} from 'react';
 import {AuthContext} from '../context/AuthContext.js';
 import firebase from 'firebase';
 
@@ -43,9 +43,6 @@ export interface LoginProps {
 const SignUp: React.SFC<LoginProps> = () => {
     const classes = useStyles();
 
-    const [email,setEmail]=useState("");
-    const [password,setPassword]=useState("");
-
     const {setUser,setIsAuthenticated} =useContext(AuthContext);
 
     return (
@@ -58,19 +55,16 @@ const SignUp: React.SFC<LoginProps> = () => {
                 }}
                 validationSchema={loginSchema}
                 onSubmit={async (values) => {
-                    console.log('====================================');
-                    console.log("Submitted", values.email, values.password);
-                    console.log('====================================');
-
                     try{
                         const result =await firebase.auth()
                             .createUserWithEmailAndPassword(values.email,values.password);
                         setUser(result);
                         setIsAuthenticated(true);
+                        navigate('/')
                     }catch(err){
                         alert(err);
                     }
-                    navigate('/')
+                    
                 }}
             >
                 {(formik: any) => (
