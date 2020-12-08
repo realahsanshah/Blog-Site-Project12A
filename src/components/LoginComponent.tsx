@@ -65,7 +65,7 @@ const Login: React.SFC<LoginProps> = () => {
                         navigate('/');
                     }
                     catch(err){
-                        alert(err.ErrorMessage);
+                        alert(err.errorMessage);
                     }
                 }}
             >

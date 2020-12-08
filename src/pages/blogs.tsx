@@ -7,6 +7,8 @@ import {
 } from '@material-ui/core';
 import { navigate } from 'gatsby';
 import * as moment from 'moment';
+import {useContext} from 'react';
+import {AuthContext} from '../context/AuthContext.js';
 
 export interface BlogListProps {
     data: any
@@ -22,6 +24,8 @@ const useStyles = makeStyles({
 
 
 const renderBlog = (data: any) => {
+    
+
     const classes = useStyles();
     const blog = data.node;
     const link: string = blog.miniTitle;
@@ -65,6 +69,7 @@ const renderBlog = (data: any) => {
 }
 
 const BlogList: React.SFC<BlogListProps> = ({ data }) => {
+    
     const blogs = data.allContentfulBlogPost.edges;
     return (
         <Layout title="Gatsby Blogs">

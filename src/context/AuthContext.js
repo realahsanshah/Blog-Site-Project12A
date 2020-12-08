@@ -17,7 +17,8 @@ const AuthProvider=({children})=>{
     useEffect(()=>{
         firebase.auth().onAuthStateChanged((user)=>{
             setUser(user);
-            user?setIsAuthenticated(true):setIsAuthenticated(false);
+            console.log("user",user);
+            user===null?setIsAuthenticated(false):setIsAuthenticated(true)
         })
     },[])
     
