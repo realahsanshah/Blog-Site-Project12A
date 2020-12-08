@@ -18,8 +18,6 @@ const useStyles = makeStyles(() =>
             fontSize:'18px'
         },
         heading:{
-                // margin:'200px 0 50px',
-                // textAlign:'center',
                 color:'#003A7B',
                 marginTop:'150px',
         }
@@ -28,6 +26,10 @@ const useStyles = makeStyles(() =>
 
 
 const loginSchema = Yup.object().shape({
+    name:Yup.string()
+            .required("Name is Required")
+            .min(3,"Name should not be less than 3 characters")
+            .max(50,"Name should not be greater than 50 characters"),
     email: Yup.string()
         .email('Invalid Email')
         .required("Email is Required").max(50, "Email must not be longer than 50 characters"),
@@ -46,22 +48,38 @@ const Login: React.SFC<LoginProps> = () => {
     const classes = useStyles();
     return (
         <div className={classes.formStyles}>
-            <h1 className={classes.heading}>Login Here</h1>
+            <h1 className={classes.heading}>Register Here</h1>
             <Formik
                 initialValues={{
+                    name:"",
                     email: "",
                     password: "",
                 }}
                 validationSchema={loginSchema}
                 onSubmit={(values) => {
                     console.log('====================================');
-                    console.log("Submitted", values.email, values.password);
+                    console.log("Submitted",values.name, values.email, values.password);
                     console.log('====================================');
                     navigate('/')
                 }}
             >
                 {(formik: any) => (
                     <Form onSubmit={formik.handleSubmit}>
+                        <div>
+                            <Field
+                                type='text'
+                                as={TextField}
+                                variant="outlined"
+                                label="Name"
+                                name="name"
+                                id="name"
+                            />
+                            <br />
+                            <ErrorMessage className={classes.errorMessage} name='name' render={(msg: string) => (
+                                <span style={{ color: "red" }}>{msg}</span>
+                            )} />
+                            <br />
+                        </div>
                         <div>
                             <Field
                                 type='email'
@@ -101,7 +119,7 @@ const Login: React.SFC<LoginProps> = () => {
                             </Button>
 
                             <Button className={classes.button} variant="contained" color="primary" type="submit">
-                                Login
+                                Register
                             </Button>
                         </div>
 
