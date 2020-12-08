@@ -1,8 +1,11 @@
 import * as React from 'react';
-import { Button, makeStyles, createStyles, TextField, InputAdornment } from '@material-ui/core';
+import { Button, makeStyles, createStyles, TextField } from '@material-ui/core';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import {navigate} from 'gatsby';
+import {useContext,useState} from 'react';
+import {AuthContext} from '../context/AuthContext.js';
+import firebase from 'firebase';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -24,11 +27,7 @@ const useStyles = makeStyles(() =>
 
 
 const loginSchema = Yup.object().shape({
-    name:Yup.string()
-            .required("Name is Required")
-            .min(3,"Name should not be less than 3 characters")
-            .max(50,"Name should not be greater than 50 characters"),
-    email: Yup.string()
+     email: Yup.string()
         .email('Invalid Email')
         .required("Email is Required").max(50, "Email must not be longer than 50 characters"),
     password: Yup.string()
@@ -39,45 +38,43 @@ const loginSchema = Yup.object().shape({
 })
 
 export interface LoginProps {
-
 }
 
-const Login: React.SFC<LoginProps> = () => {
+const SignUp: React.SFC<LoginProps> = () => {
     const classes = useStyles();
+
+    const [email,setEmail]=useState();
+
+    const {setUser,setIsAuthenticated} =useContext(AuthContext);
+
     return (
         <div className={classes.formStyles}>
             <h1 className={classes.heading}>Register Here</h1>
             <Formik
                 initialValues={{
-                    name:"",
                     email: "",
                     password: "",
                 }}
                 validationSchema={loginSchema}
-                onSubmit={(values) => {
+                onSubmit={async (values) => {
                     console.log('====================================');
-                    console.log("Submitted",values.name, values.email, values.password);
+                    console.log("Submitted", values.email, values.password);
                     console.log('====================================');
-                    navigate('/')
+
+                    try{
+                    const result =await firebase.auth()
+                        .createUserWithEmailAndPassword(values.email,values.password);
+                    setUser(result);
+                    setIsAuthenticated(true);
+                    }catch(err){
+                        alert(err);
+                    }
+
+                    // navigate('/')
                 }}
             >
                 {(formik: any) => (
                     <Form onSubmit={formik.handleSubmit}>
-                        <div>
-                            <Field
-                                type='text'
-                                as={TextField}
-                                variant="outlined"
-                                label="Name"
-                                name="name"
-                                id="name"
-                            />
-                            <br />
-                            <ErrorMessage className={classes.errorMessage} name='name' render={(msg: string) => (
-                                <span style={{ color: "red" }}>{msg}</span>
-                            )} />
-                            <br />
-                        </div>
                         <div>
                             <Field
                                 type='email'
@@ -130,4 +127,4 @@ const Login: React.SFC<LoginProps> = () => {
     );
 }
 
-export default Login;
+export default SignUp;

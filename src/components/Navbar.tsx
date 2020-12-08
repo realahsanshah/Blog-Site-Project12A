@@ -1,6 +1,8 @@
 import * as React from 'react';
 import {AppBar,Toolbar,Typography,createStyles,makeStyles,Theme,Button, Box} from '@material-ui/core';
 import {navigate} from 'gatsby';
+import {useContext} from 'react';
+import {AuthContext} from '../context/AuthContext.js';
 
 interface NavbarInterface{
     title:String
@@ -30,6 +32,8 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Navbar=({title}:NavbarInterface)=>{
     const classes=useStyles();
+    const {isAuthenticated,setIsAuthenticated,setUser} =useContext(AuthContext);
+
     return(
         <div>
            <AppBar position="static">
@@ -37,6 +41,10 @@ const Navbar=({title}:NavbarInterface)=>{
                    <Typography className={classes.title} variant="h6"  onClick={()=>{
                        navigate('/')
                    }}>{title}</Typography>
+                  
+                  
+                  {
+                  !isAuthenticated?
                    <div className={classes.navLinks}>
                     <Button className={classes.navLink} color="inherit" onClick={()=>{
                       navigate('/login')
@@ -44,7 +52,15 @@ const Navbar=({title}:NavbarInterface)=>{
                     <Button className={classes.navLink} color="inherit" onClick={()=>{
                       navigate('/signup')
                     }}>Sign Up</Button>
-                   </div>
+                   </div>:
+                   <div className={classes.navLinks}>
+                      <Button className={classes.navLink} color="inherit" onClick={()=>{
+                        setIsAuthenticated(false);
+                        setUser(null);
+                      }}>Logout</Button>
+                 </div>
+                 }
+
                </Toolbar>
             </AppBar>
         </div>
